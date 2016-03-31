@@ -1,0 +1,49 @@
+{
+  "name": "react-redux-template",
+  "version": "0.0.1",
+  "description": "A front-end application structure for development with React and Redux.",
+  "main": "./public/index.html",
+  "scripts": {
+    "start": "npm run init && node_modules/.bin/webpack-dev-server --hot -d",
+    "build": "npm run init && node_modules/.bin/webpack -p --optimize-minimize --optimize-occurence-order --optimize-dedupe && gzip -k9 ./public/assets/*",
+    "clean": "rm -rf ./public",
+    "init": "npm run clean && mkdir -p ./public && cp ./src/index.html ./public/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chaucerbao/react-redux-template.git"
+  },
+  "author": "Alvin Chan <no@email.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chaucerbao/react-redux-template/issues"
+  },
+  "homepage": "https://github.com/chaucerbao/react-redux-template#readme",
+  "devDependencies": {
+    "babel-core": "*",
+    "babel-loader": "*",
+    "babel-plugin-transform-object-rest-spread": "*",
+    "babel-polyfill": "*",
+    "babel-preset-es2015": "*",
+    "babel-preset-react": "*",
+    "css-loader": "*",
+    "extract-text-webpack-plugin": "*",
+    "isomorphic-fetch": "*",
+    "normalize.css": "*",
+    "postcss-import": "*",
+    "postcss-loader": "*",
+    "postcss-mixins": "*",
+    "postcss-nested": "*",
+    "postcss-simple-vars": "*",
+    "react": "*",
+    "react-dom": "*",
+    "react-redux": "*",
+    "react-router": "*",
+    "react-router-redux": "*",
+    "redux": "*",
+    "redux-thunk": "*",
+    "style-loader": "*",
+    "webpack": "*",
+    "webpack-dev-server": "*"
+  }
+}
