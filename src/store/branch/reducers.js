@@ -6,7 +6,7 @@ const initialState = {
   items: []
 };
 
-export default function item(state = initialState, action) {
+export default function branch(state = initialState, action) {
   switch (action.type) {
     case REQUEST_ITEMS:
       return Object.assign({}, state, {

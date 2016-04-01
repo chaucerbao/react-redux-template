@@ -3,9 +3,9 @@ import "./style.css";
 import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { fetchItems } from "store/items/actions";
+import { fetchItems } from "store/branch/actions";
 
-const Homepage = ({ actions, items }) => {
+const Homepage = ({ actions, branch }) => {
   function loadItems(e) {
     e.preventDefault();
     actions.fetchItems();
@@ -15,14 +15,14 @@ const Homepage = ({ actions, items }) => {
     <div className="homepage">
       <h1>Homepage</h1>
       <br /><a href="#loadItems" onClick={loadItems.bind(this)}>Load items</a>
-      { items.isLoading && <span><br /><br />Loading...</span> }
+      { branch.isLoading && <span><br /><br />Loading...</span> }
     </div>
   );
 };
 
 function mapStateToProps(state) {
   return {
-    items: state.items
+    branch: state.branch
   };
 }
 
