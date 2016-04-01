@@ -7,7 +7,9 @@
     "start": "npm run init && node_modules/.bin/webpack-dev-server --hot -d",
     "build": "npm run init && node_modules/.bin/webpack -p --optimize-minimize --optimize-occurence-order --optimize-dedupe && gzip -k9 ./public/assets/*",
     "clean": "rm -rf ./public",
-    "init": "npm run clean && mkdir -p ./public && cp ./src/index.html ./public/"
+    "init": "npm run clean && mkdir -p ./public && cp ./src/index.html ./public/",
+    "test": "node_modules/.bin/mocha --compilers js:babel-register --recursive",
+    "test:watch": "npm test -- --watch"
   },
   "repository": {
     "type": "git",
@@ -26,9 +28,12 @@
     "babel-polyfill": "*",
     "babel-preset-es2015": "*",
     "babel-preset-react": "*",
+    "babel-register": "*",
+    "chai": "*",
     "css-loader": "*",
     "extract-text-webpack-plugin": "*",
     "isomorphic-fetch": "*",
+    "mocha": "*",
     "normalize.css": "*",
     "postcss-import": "*",
     "postcss-loader": "*",

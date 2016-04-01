@@ -34,6 +34,17 @@ $ npm run clean
 ```
 Cleans the public directory of all files.
 
+### Test
+```sh
+$ npm test
+```
+Runs the test suite against the application.
+
+```sh
+$ npm run test:watch
+```
+Watch for changes and re-runs the test suite.
+
 
 ## Directory structure
 
@@ -77,12 +88,19 @@ Development:
 * [Babel]
 * [PostCSS]
 
+Testing:
+
+* [Mocha]
+* [Chai]
+
 Misc:
 
 * [Webpack]
 
 
 [Babel]: https://babeljs.io/
+[Chai]: http://chaijs.com/
+[Mocha]: http://mochajs.org/
 [PostCSS]: http://postcss.org/
 [React]: https://facebook.github.io/react/
 [Redux]: http://redux.js.org/

@@ -21,11 +21,7 @@ module.exports = {
     loaders: [{
       test: /\.js$/,
       loader: "babel",
-      exclude: /node_modules/,
-      query: {
-        presets: ["es2015", "react"],
-        plugins: ["transform-object-rest-spread"]
-      }
+      exclude: /node_modules/
     }, {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract("style", "css?sourceMap&minimize!postcss")
