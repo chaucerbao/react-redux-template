@@ -1,4 +1,4 @@
-import { REQUEST_ITEMS, RECEIVE_ITEMS, REQUEST_FAILED } from "./actions";
+import { REQUEST_ITEMS, RECEIVE_ITEMS, FETCH_ITEMS_FAILED } from "./actions";
 
 const initialState = {
   isLoading: false,
@@ -18,7 +18,7 @@ export default function branch(state = initialState, action) {
         updatedAt: action.updatedAt,
         items: action.items
       });
-    case REQUEST_FAILED:
+    case FETCH_ITEMS_FAILED:
       return Object.assign({}, state, {
         isLoading: false
       });

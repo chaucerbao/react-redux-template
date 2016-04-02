@@ -3,14 +3,14 @@ import fetch from "isomorphic-fetch";
 const baseUrl = "http://localhost:8080";
 
 export const REQUEST_ITEMS = "REQUEST_ITEMS";
-export function loadItems() {
+export function requestItems() {
   return {
     type: REQUEST_ITEMS
   }
 }
 
 export const RECEIVE_ITEMS = "RECEIVE_ITEMS";
-export function itemsLoaded(json) {
+export function receiveItems(json) {
   return {
     type: RECEIVE_ITEMS,
     updatedAt: Date.now(),
@@ -20,23 +20,23 @@ export function itemsLoaded(json) {
 
 export function fetchItems() {
   return dispatch => {
-    dispatch(loadItems());
+    dispatch(requestItems());
 
     return fetch(`${baseUrl}/api`)
       .then(response => {
         if (response.status === 200) {
-          return dispatch(itemsLoaded(response.json()));
+          return dispatch(receiveItems(response.json()));
         }
 
-        return dispatch(fetchFailed(response));
+        return dispatch(fetchItemsFailed(response));
       })
-      .catch(fetchFailed);
+      .catch(fetchItemsFailed);
   };
 }
 
-export const REQUEST_FAILED = "REQUEST_FAILED";
-function fetchFailed() {
+export const FETCH_ITEMS_FAILED = "FETCH_ITEMS_FAILED";
+function fetchItemsFailed() {
   return {
-    type: REQUEST_FAILED
+    type: FETCH_ITEMS_FAILED
   }
 }

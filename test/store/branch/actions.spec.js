@@ -11,7 +11,7 @@ import * as actions from "../../../src/store/branch/actions";
 // Mock store
 const mockStore = configureMockStore([thunk]);
 
-describe("Branch", () => {
+describe("Branch actions", () => {
   let dateStub;
 
   // Setup
@@ -25,16 +25,16 @@ describe("Branch", () => {
     nock.cleanAll();
   });
 
-  // loadItems()
+  // requestItems()
   it("returns an action to request items", () => {
-    expect(actions.loadItems()).to.deep.equal({
+    expect(actions.requestItems()).to.deep.equal({
       type: actions.REQUEST_ITEMS
     });
   });
 
-  // itemsLoaded(json)
-  it("returns an action to populate the items received", () => {
-    expect(actions.itemsLoaded({
+  // receiveItems(json)
+  it("returns an action to populate the items", () => {
+    expect(actions.receiveItems({
       items: [{ id: 1 }]
     })).to.deep.equal({
       type: actions.RECEIVE_ITEMS,
@@ -70,7 +70,7 @@ describe("Branch", () => {
         let history = store.getActions();
 
         expect(history[0]).to.have.property("type", actions.REQUEST_ITEMS);
-        expect(history[1]).to.have.property("type", actions.REQUEST_FAILED);
+        expect(history[1]).to.have.property("type", actions.FETCH_ITEMS_FAILED);
       })
       .then(done);
   });
