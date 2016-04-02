@@ -3,7 +3,7 @@ import { expect } from "chai";
 
 // Reducer
 import reducer from "../../../src/store/branch/reducers";
-import { REQUEST_ITEMS, RECEIVE_ITEMS } from "../../../src/store/branch/actions";
+import { REQUEST_ITEMS, RECEIVE_ITEMS, REQUEST_FAILED } from "../../../src/store/branch/actions";
 
 describe("Branch reducer", () => {
   // Default
@@ -39,5 +39,14 @@ describe("Branch reducer", () => {
       updatedAt: 12345,
       items: [{ id: 1 }, { id: 2 }]
     });
+  });
+
+  // REQUEST_FAILED
+  it("fails to request items", () => {
+    expect(reducer({
+      isLoading: true
+    }, {
+      type: REQUEST_FAILED
+    })).to.have.property("isLoading", false);
   });
 });

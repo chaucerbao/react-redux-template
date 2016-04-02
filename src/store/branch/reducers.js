@@ -1,4 +1,4 @@
-import { REQUEST_ITEMS, RECEIVE_ITEMS } from "./actions";
+import { REQUEST_ITEMS, RECEIVE_ITEMS, REQUEST_FAILED } from "./actions";
 
 const initialState = {
   isLoading: false,
@@ -17,6 +17,10 @@ export default function branch(state = initialState, action) {
         isLoading: false,
         updatedAt: action.updatedAt,
         items: action.items
+      });
+    case REQUEST_FAILED:
+      return Object.assign({}, state, {
+        isLoading: false
       });
     default:
       return state;
