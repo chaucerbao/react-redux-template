@@ -1,7 +1,10 @@
-import "./style.css";
-
+// Dependencies
 import React from "react";
 
+// Styles
+import "./style.css";
+
+// Component
 const DefaultLayout = ({ children }) => {
   return (
     <div className="site">

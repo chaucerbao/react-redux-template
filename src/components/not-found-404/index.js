@@ -1,7 +1,10 @@
-import "./style.css";
-
+// Dependencies
 import React from "react";
 
+// Styles
+import "./style.css";
+
+// Component
 const NotFound404 = () => {
   return (
     <div className="not-found-404">
