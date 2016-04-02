@@ -34,6 +34,7 @@
     "extract-text-webpack-plugin": "*",
     "isomorphic-fetch": "*",
     "mocha": "*",
+    "nock": "*",
     "normalize.css": "*",
     "postcss-import": "*",
     "postcss-loader": "*",
@@ -46,7 +47,9 @@
     "react-router": "*",
     "react-router-redux": "*",
     "redux": "*",
+    "redux-mock-store": "*",
     "redux-thunk": "*",
+    "sinon": "*",
     "style-loader": "*",
     "webpack": "*",
     "webpack-dev-server": "*"
