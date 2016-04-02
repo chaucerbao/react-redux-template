@@ -92,6 +92,7 @@ Testing:
 
 * [Mocha]
 * [Chai]
+* [Sinon.JS]
 
 Misc:
 
@@ -104,4 +105,5 @@ Misc:
 [PostCSS]: http://postcss.org/
 [React]: https://facebook.github.io/react/
 [Redux]: http://redux.js.org/
+[Sinon.JS]: http://sinonjs.org/
 [Webpack]: http://webpack.github.io/
