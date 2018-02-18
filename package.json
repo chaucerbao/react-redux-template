@@ -1,0 +1,52 @@
+{
+  "name": "react-redux-template",
+  "version": "0.1.0",
+  "description": "A project template for a large React/Redux application",
+  "author": "Alvin Chan <no@email.com>",
+  "license": "ISC",
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "devDependencies": {
+    "@types/react-dom": "^16.0.4",
+    "@types/react-redux": "^5.0.15",
+    "@types/redux-logger": "^3.0.5",
+    "cache-loader": "^1.2.0",
+    "fork-ts-checker-webpack-plugin": "^0.3.0",
+    "html-webpack-plugin": "^2.30.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.1.1",
+    "prettier": "^1.10.2",
+    "redux-logger": "^3.0.6",
+    "thread-loader": "^1.1.2",
+    "ts-loader": "^3.5.0",
+    "typescript": "^2.7.2",
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.1"
+  },
+  "dependencies": {
+    "immer": "^1.0.3",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "reselect": "^3.0.1"
+  },
+  "scripts": {
+    "start": "webpack-dev-server -d --devtool cheap-module-eval-source-map",
+    "build": "webpack -p --devtool source-map --progress"
+  }
+}
