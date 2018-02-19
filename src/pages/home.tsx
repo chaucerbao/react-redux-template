@@ -7,6 +7,7 @@ import { fetchUsers } from 'stores/users/actions'
 import { User } from 'stores/users/reducer'
 import { sortMapBy } from 'lib/selectors'
 import Loading from 'components/loading'
+import DefaultLayout from './layouts/default'
 
 // Type definitions
 interface Props {
@@ -29,7 +30,7 @@ class Home extends React.Component<Props> {
     const sortedUsers = sortMapBy<User>('name')(state.users._cache)
 
     return (
-      <div>
+      <DefaultLayout>
         <h1>Homepage</h1>
 
         {state.users.isLoading ? (
@@ -39,7 +40,7 @@ class Home extends React.Component<Props> {
             <div key={`user:${user.id}`}>{user.name}</div>
           ))
         )}
-      </div>
+      </DefaultLayout>
     )
   }
 }
