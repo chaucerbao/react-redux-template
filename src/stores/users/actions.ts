@@ -8,7 +8,7 @@ export const CACHE_USERS = 'USERS.CACHE_USERS'
 export const cacheUsers = (users: User[]) => ({ type: CACHE_USERS, users })
 
 export const SET_LOADING = 'USERS.SET_LOADING'
-export const setLoading = (isLoading: boolean) => ({
+const setLoading = (isLoading: boolean) => ({
   type: SET_LOADING,
   isLoading
 })
