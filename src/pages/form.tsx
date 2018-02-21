@@ -1,6 +1,7 @@
 // Dependencies
 import produce from 'immer'
 import React from 'react'
+import Button from 'components/button'
 import {
   ChangeEvent,
   Checkbox,
@@ -98,6 +99,8 @@ class Form extends React.Component<{}, State> {
           options={this.options}
           onChange={this.updateField}
         />
+
+        <Button type="submit">Submit</Button>
       </DefaultLayout>
     )
   }

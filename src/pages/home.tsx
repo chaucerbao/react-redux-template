@@ -6,6 +6,7 @@ import { State } from 'stores'
 import { fetchUsers } from 'stores/users/actions'
 import { User } from 'stores/users/reducer'
 import { sortMapBy } from 'lib/selectors'
+import Button from 'components/button'
 import Loading from 'components/loading'
 import DefaultLayout from './layouts/default'
 
@@ -40,6 +41,8 @@ class Home extends React.Component<Props> {
             <div key={`user:${user.id}`}>{user.name}</div>
           ))
         )}
+
+        <Button to='/form'>Button link to form</Button>
       </DefaultLayout>
     )
   }

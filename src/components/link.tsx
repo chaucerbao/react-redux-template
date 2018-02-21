@@ -3,7 +3,7 @@ import React from 'react'
 import RouterLink, { LinkProps } from 'redux-first-router-link'
 
 // Type definitions
-interface Props extends LinkProps {
+export interface Props extends LinkProps {
   external?: boolean
 }
 
