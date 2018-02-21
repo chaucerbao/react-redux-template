@@ -28,14 +28,9 @@ export default (state: State = defaultState, action: AnyAction) =>
         draft.isLoading = action.isLoading
         break
       case CACHE_USERS:
-        draft._cache = action.users.reduce(
-          (cache: State['_cache'], user: User) => {
-            cache[user.id] = { ...cache[user.id], ...user }
-
-            return cache
-          },
-          draft._cache
-        )
+        action.users.forEach((user: User) => {
+          draft._cache[user.id] = { ...draft._cache[user.id], ...user }
+        })
         break
       default:
     }
