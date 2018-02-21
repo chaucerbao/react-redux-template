@@ -7,6 +7,7 @@ import { LocationState } from 'redux-first-router'
 
 // Pages
 import Home from './pages/home'
+import Form from './pages/form'
 import NotFound from './pages/not-found'
 
 // Type definitions
@@ -21,6 +22,8 @@ const Router = ({ state }: Props) => {
     switch (state.location.type) {
       case ROUTES.HOME:
         return <Home />
+      case ROUTES.FORM:
+        return <Form />
       default:
         return <NotFound />
     }
