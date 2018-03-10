@@ -13,7 +13,7 @@ import thunk from 'redux-thunk'
 import routes from 'routes'
 
 // Reducers
-import users, { State as UsersState } from './users/reducer'
+import users, { State as UsersState } from './users'
 
 // Type definitions
 export interface State {
