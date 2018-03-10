@@ -1,7 +1,7 @@
 // Dependencies
 import produce from 'immer'
 import { Dispatch } from 'redux'
-import { createActions, handleActions } from 'redux-actions'
+import { createAction, handleActions } from 'redux-actions'
 
 // Type definitions
 export interface State {
@@ -14,8 +14,6 @@ export interface User {
   name: string
 }
 
-type Payload = boolean | User[]
-
 // Default state
 const defaultState = {
   _cache: {},
@@ -23,12 +21,8 @@ const defaultState = {
 }
 
 // Actions
-export const { users: { setLoading, cacheUsers } } = createActions<Payload>({
-  USERS: {
-    SET_LOADING: isLoading => isLoading,
-    CACHE_USERS: users => users
-  }
-})
+const setLoading = createAction<boolean>('USERS/SET_LOADING')
+export const cacheUsers = createAction<User[]>('USERS/CACHE_USERS')
 
 // Thunk actions
 export const fetchUsers = () => async (dispatch: Dispatch<State>) => {
@@ -46,22 +40,20 @@ export const fetchUsers = () => async (dispatch: Dispatch<State>) => {
 }
 
 // Reducer
-export default handleActions<State, Payload>(
+export default handleActions<State>(
   {
-    USERS: {
-      SET_LOADING_USERS: (state, { payload }) =>
-        produce(state, draft => {
-          draft.isLoading = !!payload
-        }),
-      CACHE_USERS: (state, { payload }) =>
-        produce(state, draft => {
-          if (Array.isArray(payload)) {
-            payload.forEach((user: User) => {
-              draft._cache[user.id] = { ...draft._cache[user.id], ...user }
-            })
-          }
-        })
-    }
+    'USERS/SET_LOADING': (state, { payload }) =>
+      produce(state, draft => {
+        draft.isLoading = !!payload
+      }),
+    'USERS/CACHE_USERS': (state, { payload }) =>
+      produce(state, draft => {
+        if (Array.isArray(payload)) {
+          payload.forEach((user: User) => {
+            draft._cache[user.id] = { ...draft._cache[user.id], ...user }
+          })
+        }
+      })
   },
   defaultState
 )
