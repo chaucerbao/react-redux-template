@@ -1,7 +1,7 @@
 // Dependencies
 import produce from 'immer'
 import { Dispatch } from 'redux'
-import { createAction, handleActions } from 'redux-actions'
+import { Action, createAction, handleActions } from 'redux-actions'
 
 // Type definitions
 export interface State {
@@ -40,16 +40,16 @@ export const fetchUsers = () => async (dispatch: Dispatch<State>) => {
 }
 
 // Reducer
-export default handleActions<State>(
+export default handleActions<State, any>(
   {
-    'USERS/SET_LOADING': (state, { payload }) =>
+    [setLoading.toString()]: (state, { payload }: Action<boolean>) =>
       produce(state, draft => {
         draft.isLoading = !!payload
       }),
-    'USERS/CACHE_USERS': (state, { payload }) =>
+    [cacheUsers.toString()]: (state, { payload }: Action<User[]>) =>
       produce(state, draft => {
-        if (Array.isArray(payload)) {
-          payload.forEach((user: User) => {
+        if (payload) {
+          payload.forEach(user => {
             draft._cache[user.id] = { ...draft._cache[user.id], ...user }
           })
         }
