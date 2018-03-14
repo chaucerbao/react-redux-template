@@ -50,7 +50,11 @@ class Form extends React.Component<{}, State> {
     const key = e.currentTarget.name as keyof State
     const value = fieldValue(e)
 
-    this.setState(produce((draft: State) => (draft[key] = value)))
+    this.setState(
+      produce((draft: State) => {
+        draft[key] = value
+      })
+    )
   }
 
   render() {
