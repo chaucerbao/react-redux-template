@@ -1,7 +1,7 @@
 // Dependencies
 import React from 'react'
 import { connect } from 'react-redux'
-import { State } from 'stores'
+import { State } from 'store'
 import * as ROUTES from 'routes'
 import { LocationState } from 'redux-first-router'
 

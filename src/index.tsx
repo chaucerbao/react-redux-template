@@ -4,7 +4,7 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 
 // Store
-import store from './stores'
+import store from './store'
 
 // Router
 import Router from './router'
