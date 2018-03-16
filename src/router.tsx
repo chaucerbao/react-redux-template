@@ -1,14 +1,13 @@
 // Dependencies
 import React from 'react'
 import { connect } from 'react-redux'
+import { LocationState } from 'redux-first-router'
+import Loadable from 'react-loadable'
+
 import { State } from 'store'
 import * as ROUTES from 'routes'
-import { LocationState } from 'redux-first-router'
-
-// Pages
-import Home from './pages/home'
-import Form from './pages/form'
-import NotFound from './pages/not-found'
+import Loading from 'components/loading'
+import NotFound from 'pages/not-found'
 
 // Type definitions
 interface Props {
@@ -17,16 +16,24 @@ interface Props {
   }
 }
 
+// Asynchronous page loader
+const AsyncPage = (page: Promise<any>) =>
+  Loadable({ loader: () => page, loading: Loading })
+
+// Pages
+const Home = AsyncPage(import('pages/home'))
+const Form = AsyncPage(import('pages/form'))
+
 // Router
 const Router = ({ state }: Props) => {
-    switch (state.location.type) {
-      case ROUTES.HOME:
-        return <Home />
-      case ROUTES.FORM:
-        return <Form />
-      default:
-        return <NotFound />
-    }
+  switch (state.location.type) {
+    case ROUTES.HOME:
+      return <Home />
+    case ROUTES.FORM:
+      return <Form />
+    default:
+      return <NotFound />
+  }
 }
 
 // State to props
