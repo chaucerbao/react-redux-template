@@ -10,19 +10,19 @@ interface Props {
 // Layout
 const DefaultLayout = (props: Props) => (
   <React.Fragment>
-    <header key="layout__header">
+    <header>
       <nav>
         <Link to="/">Home</Link>
+        &nbsp;
         <Link to="/login">Login</Link>
+        &nbsp;
         <Link to="/not-found">Page not found</Link>
       </nav>
     </header>
 
-    <main key="layout__body">{props.children}</main>
+    <main>{props.children}</main>
 
-    <footer key="layout__footer">
-      &copy; Copyright {new Date().getFullYear()}
-    </footer>
+    <footer>&copy; Copyright {new Date().getFullYear()}</footer>
   </React.Fragment>
 )
 
