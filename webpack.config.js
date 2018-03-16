@@ -14,13 +14,13 @@ const config = {
   },
   output: {
     path: dest,
-    filename: '[name].js',
-    chunkFilename: '[chunkhash].js'
+    filename: path.join('js', '[name].js'),
+    chunkFilename: path.join('js', '[chunkhash].js')
   },
   module: {
     rules: [
       {
-        test: /\.ts(x?)$/,
+        test: /\.tsx?$/,
         include: src,
         use: [
           { loader: 'cache-loader' },
