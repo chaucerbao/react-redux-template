@@ -13,7 +13,7 @@ const DefaultLayout = (props: Props) => (
     <header key="layout__header">
       <nav>
         <Link to="/">Home</Link>
-        <Link to="/form">Form</Link>
+        <Link to="/login">Login</Link>
         <Link to="/not-found">Page not found</Link>
       </nav>
     </header>

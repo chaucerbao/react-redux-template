@@ -1,9 +1,9 @@
 // Action types
 export const HOME = 'ROUTES/HOME'
-export const FORM = 'ROUTES/FORM'
+export const LOGIN = 'ROUTES/LOGIN'
 
 // Routes
 export default {
   [HOME]: '/',
-  [FORM]: '/form'
+  [LOGIN]: '/login'
 }

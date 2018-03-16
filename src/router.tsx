@@ -22,15 +22,15 @@ const AsyncPage = (loader: () => Promise<any>) =>
 
 // Pages
 const Home = AsyncPage(() => import('pages/home'))
-const Form = AsyncPage(() => import('pages/form'))
+const Login = AsyncPage(() => import('pages/login'))
 
 // Router
 const Router = ({ state }: Props) => {
   switch (state.location.type) {
     case ROUTES.HOME:
       return <Home />
-    case ROUTES.FORM:
-      return <Form />
+    case ROUTES.LOGIN:
+      return <Login />
     default:
       return <NotFound />
   }
