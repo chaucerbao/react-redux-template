@@ -5,12 +5,12 @@ import { Action, createAction, handleActions } from 'redux-actions'
 
 // Type definitions
 export interface State {
-  _cache: { [key: string]: User }
+  _cache: { [key: number]: User }
   isLoading: boolean
 }
 
 export interface User {
-  id: string
+  id: number
   name: string
 }
 
@@ -46,6 +46,7 @@ export default handleActions<State, any>(
       produce(state, draft => {
         draft.isLoading = !!payload
       }),
+
     [cacheUsers.toString()]: (state, { payload }: Action<User[]>) =>
       produce(state, draft => {
         if (payload) {
