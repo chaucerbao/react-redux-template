@@ -17,12 +17,12 @@ interface Props {
 }
 
 // Asynchronous page loader
-const AsyncPage = (page: Promise<any>) =>
-  Loadable({ loader: () => page, loading: Loading })
+const AsyncPage = (loader: () => Promise<any>) =>
+  Loadable({ loader, loading: Loading })
 
 // Pages
-const Home = AsyncPage(import('pages/home'))
-const Form = AsyncPage(import('pages/form'))
+const Home = AsyncPage(() => import('pages/home'))
+const Form = AsyncPage(() => import('pages/form'))
 
 // Router
 const Router = ({ state }: Props) => {
