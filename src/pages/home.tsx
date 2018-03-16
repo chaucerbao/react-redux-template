@@ -5,9 +5,9 @@ import { Dispatch, bindActionCreators } from 'redux'
 import { State } from 'store'
 import { fetchUsers, User } from 'store/users'
 import { sortMapBy } from 'lib/selectors'
+import DefaultLayout from 'pages/layouts/default'
 import Button from 'components/button'
 import Loading from 'components/loading'
-import DefaultLayout from './layouts/default'
 
 // Type definitions
 interface Props {
@@ -41,13 +41,13 @@ class Home extends React.Component<Props> {
           ))
         )}
 
-        <Button to='/form'>Button link to form</Button>
+        <Button to="/form">Button link to form</Button>
       </DefaultLayout>
     )
   }
 }
 
-// State to props
+// State
 const mapStateToProps = (state: State) => ({
   state: {
     users: {
@@ -57,7 +57,7 @@ const mapStateToProps = (state: State) => ({
   }
 })
 
-// Dispatch to props
+// Dispatch
 const mapDispatchToProps = (dispatch: Dispatch<State>) => ({
   dispatch: bindActionCreators({ fetchUsers }, dispatch)
 })

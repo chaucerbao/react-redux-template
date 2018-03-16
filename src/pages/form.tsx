@@ -1,6 +1,7 @@
 // Dependencies
-import produce from 'immer'
 import React from 'react'
+import produce from 'immer'
+import DefaultLayout from 'pages/layouts/default'
 import Button from 'components/button'
 import {
   ChangeEvent,
@@ -11,7 +12,6 @@ import {
   TextArea,
   fieldValue
 } from 'components/form'
-import DefaultLayout from './layouts/default'
 
 // Type definitions
 interface State {
@@ -110,4 +110,5 @@ class Form extends React.Component<{}, State> {
   }
 }
 
+// Exports
 export default Form

@@ -4,7 +4,7 @@ import Link from 'components/link'
 
 // Type definitions
 interface Props {
-  children: any
+  children: React.ReactNode
 }
 
 // Layout

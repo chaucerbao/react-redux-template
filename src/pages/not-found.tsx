@@ -1,6 +1,6 @@
 // Dependencies
 import React from 'react'
-import DefaultLayout from './layouts/default'
+import DefaultLayout from 'pages/layouts/default'
 
 // Page
 const NotFound = () => (
