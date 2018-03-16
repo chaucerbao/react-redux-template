@@ -23,9 +23,8 @@
     "@types/react-dom": "^16.0.4",
     "@types/react-loadable": "^5.3.3",
     "@types/react-redux": "^5.0.15",
+    "@types/react-router-dom": "^4.2.5",
     "@types/redux-actions": "^2.2.4",
-    "@types/redux-first-router": "^1.10.2",
-    "@types/redux-first-router-link": "^1.4.3",
     "@types/redux-logger": "^3.0.5",
     "cache-loader": "^1.2.0",
     "fork-ts-checker-webpack-plugin": "^0.3.0",
@@ -41,16 +40,14 @@
     "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
-    "history": "^4.7.2",
     "immer": "^1.0.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-loadable": "^5.3.1",
     "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-actions": "^2.3.0",
-    "redux-first-router": "0.0.16-next",
-    "redux-first-router-link": "^1.4.2",
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1"
   },

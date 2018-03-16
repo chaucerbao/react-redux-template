@@ -4,10 +4,10 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 
 // Store
-import store from './store'
+import store from 'store'
 
 // Router
-import Router from './router'
+import Router from 'router'
 
 // Mount
 render(

@@ -41,7 +41,7 @@ class Home extends React.Component<Props> {
           ))
         )}
 
-        <Button to="/form">Button link to form</Button>
+        <Button to="/login">Button link to login</Button>
       </DefaultLayout>
     )
   }

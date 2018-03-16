@@ -1,6 +1,6 @@
 // Dependencies
 import React from 'react'
-import RouterLink, { LinkProps } from 'redux-first-router-link'
+import { Link as RouterLink, LinkProps } from 'react-router-dom'
 
 // Type definitions
 export interface Props extends LinkProps {
