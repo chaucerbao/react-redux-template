@@ -16,7 +16,7 @@ const defaultState = null
 
 // Actions
 const setAuthUser = createAction<AuthUser>('ME/LOG_IN')
-export const logout = createAction<void>('ME/LOG_OUT')
+export const logout = createAction('ME/LOG_OUT')
 
 // Thunk actions
 export const login = (_email: string, _password: string) => async (

@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Loadable from 'react-loadable'
 import Loading from 'components/loading'
 import NotFound from 'pages/not-found'
+import Logout from 'pages/logout'
 
 // Asynchronous page loader
 const AsyncPage = (loader: () => Promise<any>) =>
@@ -19,6 +20,7 @@ const Router = () => (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/login" component={Login} />
+      <Route path="/Logout" component={Logout} />
       <Route component={NotFound} />
     </Switch>
   </BrowserRouter>

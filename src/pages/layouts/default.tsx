@@ -1,9 +1,14 @@
 // Dependencies
 import React from 'react'
+import { connect } from 'react-redux'
+import { State as StoreState } from 'store'
 import Link from 'components/link'
 
 // Type definitions
 interface Props {
+  state: {
+    me: StoreState['me']
+  }
   children: React.ReactNode
 }
 
@@ -14,9 +19,9 @@ const DefaultLayout = (props: Props) => (
       <nav>
         <Link to="/">Home</Link>
         &nbsp;
-        <Link to="/login">Login</Link>
-        &nbsp;
         <Link to="/not-found">Page not found</Link>
+        &nbsp;
+        {props.state.me ? <Link to="/logout">Log out</Link> : <Link to="/login">Log in</Link>}
       </nav>
     </header>
 
@@ -26,5 +31,12 @@ const DefaultLayout = (props: Props) => (
   </React.Fragment>
 )
 
+// State
+const mapStateToProps = (state: StoreState) => ({
+  state: {
+    me: state.me
+  }
+})
+
 // Exports
-export default DefaultLayout
+export default connect(mapStateToProps)(DefaultLayout)
