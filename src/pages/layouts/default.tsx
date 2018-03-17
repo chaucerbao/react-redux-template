@@ -19,6 +19,8 @@ const DefaultLayout = (props: Props) => (
       <nav>
         <Link to="/">Home</Link>
         &nbsp;
+        <Link to="/secret">Secret</Link>
+        &nbsp;
         <Link to="/not-found">Page not found</Link>
         &nbsp;
         {props.state.me ? <Link to="/logout">Log out</Link> : <Link to="/login">Log in</Link>}

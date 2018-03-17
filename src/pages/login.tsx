@@ -1,5 +1,6 @@
 // Dependencies
 import React from 'react'
+import { Redirect, RouteProps } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Dispatch, bindActionCreators } from 'redux'
 import { State as StoreState } from 'store'
@@ -16,6 +17,7 @@ interface Props {
   dispatch: {
     login: typeof login
   }
+  location: RouteProps['location']
 }
 interface State {
   form: {
@@ -55,6 +57,14 @@ class Login extends React.Component<Props, State> {
   }
 
   render() {
+    if (this.props.state.me) {
+      const path = this.props.location!.search
+
+      return (
+        <Redirect to={path ? decodeURIComponent(path.substring(1)) : '/'} />
+      )
+    }
+
     const { form } = this.state
 
     return (
