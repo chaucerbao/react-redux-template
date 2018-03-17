@@ -33,6 +33,7 @@
     "lint-staged": "^6.1.1",
     "prettier": "^1.10.2",
     "redux-logger": "^3.0.6",
+    "source-map-explorer": "^1.5.0",
     "thread-loader": "^1.1.2",
     "ts-loader": "^3.5.0",
     "typescript": "^2.7.2",
@@ -53,6 +54,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server -d --devtool cheap-module-eval-source-map",
-    "build": "webpack -p --devtool source-map --progress"
+    "build": "webpack -p --devtool source-map --progress",
+    "analyze": "source-map-explorer public/js/script.js{,.map}"
   }
 }
