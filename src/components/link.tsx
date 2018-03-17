@@ -1,22 +1,22 @@
 // Dependencies
 import React from 'react'
-import { Link as RouterLink, LinkProps } from 'react-router-dom'
+import { Link as RouterLink, LinkProps as RouterLinkProps } from 'react-router-dom'
 
 // Type definitions
-export interface Props extends LinkProps {
+export interface Props extends RouterLinkProps {
   external?: boolean
 }
 
 // Component
 const Link = (props: Props) => {
-  const { external, children, to, ...linkProps } = props
+  const { external, children, to, ...restProps } = props
 
   return external && typeof to === 'string' ? (
-    <a {...linkProps} href={to} target="_blank" rel="noopener">
+    <a {...restProps} href={to} target="_blank" rel="noopener">
       {children}
     </a>
   ) : (
-    <RouterLink {...linkProps} to={to}>
+    <RouterLink {...restProps} to={to}>
       {children}
     </RouterLink>
   )

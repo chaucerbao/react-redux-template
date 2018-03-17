@@ -2,7 +2,6 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Loadable from 'react-loadable'
-
 import Loading from 'components/loading'
 import NotFound from 'pages/not-found'
 

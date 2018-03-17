@@ -2,7 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Dispatch, bindActionCreators } from 'redux'
-import { State } from 'store'
+import { State as StoreState } from 'store'
 import { fetchUsers, User } from 'store/users'
 import { sortMapBy } from 'lib/selectors'
 import DefaultLayout from 'pages/layouts/default'
@@ -12,7 +12,7 @@ import Loading from 'components/loading'
 // Type definitions
 interface Props {
   state: {
-    users: Pick<State['users'], '_cache' | 'isLoading'>
+    users: Pick<StoreState['users'], '_cache' | 'isLoading'>
   }
   dispatch: {
     fetchUsers: typeof fetchUsers
@@ -48,7 +48,7 @@ class Home extends React.Component<Props> {
 }
 
 // State
-const mapStateToProps = (state: State) => ({
+const mapStateToProps = (state: StoreState) => ({
   state: {
     users: {
       _cache: state.users._cache,
@@ -58,7 +58,7 @@ const mapStateToProps = (state: State) => ({
 })
 
 // Dispatch
-const mapDispatchToProps = (dispatch: Dispatch<State>) => ({
+const mapDispatchToProps = (dispatch: Dispatch<StoreState>) => ({
   dispatch: bindActionCreators({ fetchUsers }, dispatch)
 })
 
