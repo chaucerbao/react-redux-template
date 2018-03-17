@@ -2,9 +2,10 @@
 import produce from 'immer'
 import { Dispatch } from 'redux'
 import { Action, createAction, handleActions } from 'redux-actions'
+import { State } from 'store'
 
 // Type definitions
-export interface State {
+export interface UsersState {
   _cache: { [key: number]: User }
   isLoading: boolean
 }
@@ -25,7 +26,12 @@ const setLoading = createAction<boolean>('USERS/SET_LOADING')
 export const cacheUsers = createAction<User[]>('USERS/CACHE_USERS')
 
 // Thunk actions
-export const fetchUsers = () => async (dispatch: Dispatch<State>) => {
+export const fetchUsers = () => async (
+  dispatch: Dispatch<State>,
+  getState: () => State
+) => {
+  if (Object.keys(getState().users._cache).length > 0) return
+
   dispatch(setLoading(true))
 
   dispatch(
@@ -40,7 +46,7 @@ export const fetchUsers = () => async (dispatch: Dispatch<State>) => {
 }
 
 // Reducer
-export default handleActions<State, any>(
+export default handleActions<UsersState, any>(
   {
     [setLoading.toString()]: (state, { payload }: Action<boolean>) =>
       produce(state, draft => {

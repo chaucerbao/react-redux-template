@@ -9,7 +9,7 @@ import logger from 'redux-logger'
 import thunk from 'redux-thunk'
 
 // Reducers
-import users, { State as UsersState } from './users'
+import users, { UsersState } from './users'
 
 // Type definitions
 export interface State {
