@@ -6,16 +6,17 @@ import { State as StoreState } from 'store'
 import { cacheUsers, User } from 'store/users'
 
 // Type definitions
-interface AuthUser extends User {
+interface Me {
   authToken: string
+  user: User
 }
-export type State = AuthUser | null
+export type State = Me | null
 
 // Default state
 const defaultState = null
 
 // Actions
-const setAuthUser = createAction<AuthUser>('ME/LOG_IN')
+const setMe = createAction<Me>('ME/LOG_IN')
 export const logout = createAction('ME/LOG_OUT')
 
 // Thunk actions
@@ -29,15 +30,14 @@ export const login = (_email: string, _password: string) => async (
 
   if (user) {
     dispatch(cacheUsers([user]))
-
-    dispatch(setAuthUser({ ...getState().users._cache[1], authToken: '' }))
+    dispatch(setMe({ authToken: '', user: getState().users._cache[1] }))
   }
 }
 
 // Reducer
 export default handleActions<State, any>(
   {
-    [setAuthUser.toString()]: (state, { payload }: Action<AuthUser>) =>
+    [setMe.toString()]: (state, { payload }: Action<Me>) =>
       produce(state, () => payload),
 
     [logout.toString()]: state => produce(state, () => null)
