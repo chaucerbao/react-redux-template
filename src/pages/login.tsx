@@ -1,10 +1,22 @@
 // Dependencies
 import React from 'react'
+import { connect } from 'react-redux'
+import { Dispatch, bindActionCreators } from 'redux'
+import { State as StoreState } from 'store'
+import { login } from 'store/me'
 import produce from 'immer'
 import DefaultLayout from 'pages/layouts/default'
 import Button from 'components/button'
 
 // Type definitions
+interface Props {
+  state: {
+    me: StoreState['me']
+  }
+  dispatch: {
+    login: typeof login
+  }
+}
 interface State {
   form: {
     email: string
@@ -13,8 +25,8 @@ interface State {
 }
 
 // Page
-class Login extends React.Component<{}, State> {
-  constructor(props: {}) {
+class Login extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props)
 
     this.state = {
@@ -37,6 +49,9 @@ class Login extends React.Component<{}, State> {
 
   submitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+
+    const { email, password } = this.state.form
+    this.props.dispatch.login(email, password)
   }
 
   render() {
@@ -80,5 +95,17 @@ class Login extends React.Component<{}, State> {
   }
 }
 
+// State
+const mapStateToProps = (state: StoreState) => ({
+  state: {
+    me: state.me
+  }
+})
+
+// Dispatch
+const mapDispatchToProps = (dispatch: Dispatch<StoreState>) => ({
+  dispatch: bindActionCreators({ login }, dispatch)
+})
+
 // Exports
-export default Login
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
