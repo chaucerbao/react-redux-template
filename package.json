@@ -47,10 +47,11 @@
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
-    "redux-logger": "^3.0.6",
     "redux-actions": "^2.3.0",
+    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
-    "reselect": "^3.0.1"
+    "reselect": "^3.0.1",
+    "tslib": "^1.9.0"
   },
   "scripts": {
     "start": "webpack-dev-server -d --devtool cheap-module-eval-source-map",

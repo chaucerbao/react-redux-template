@@ -13,6 +13,7 @@
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
+    "importHelpers": true,
     "sourceMap": true
   }
 }
