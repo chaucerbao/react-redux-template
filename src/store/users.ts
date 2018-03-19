@@ -27,7 +27,7 @@ const defaultState = {
 export const selectUsers = createSelector(
   (state: StoreState) => state.users._cache,
   users =>
-    orderBy<User>('name')(Object.keys(users).map(key => users[parseInt(key)]))
+    orderBy<User>('name')(Object.values(users))
 )
 export const selectIsLoading = (state: StoreState) => state.users.isLoading
 
