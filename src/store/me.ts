@@ -1,13 +1,13 @@
 // Dependencies
 import produce from 'immer'
 import { Dispatch } from 'redux'
-import { Action, createAction, handleActions } from 'redux-actions'
+import { createAction, handleActions, Action } from 'redux-actions'
 import { State as StoreState } from 'store'
 import { cacheUsers, User } from 'store/users'
 
 // Type definitions
 interface Me {
-  authToken: string
+  accessToken: string
   user: User
 }
 export type State = Me | null
@@ -30,7 +30,7 @@ export const login = (_email: string, _password: string) => async (
 
   if (user) {
     dispatch(cacheUsers([user]))
-    dispatch(setMe({ authToken: '', user: getState().users._cache[1] }))
+    dispatch(setMe({ accessToken: '', user: getState().users._cache[1] }))
   }
 }
 

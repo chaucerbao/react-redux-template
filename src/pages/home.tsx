@@ -1,7 +1,7 @@
 // Dependencies
 import React from 'react'
 import { connect } from 'react-redux'
-import { Dispatch, bindActionCreators } from 'redux'
+import { bindActionCreators, Dispatch } from 'redux'
 import { State as StoreState } from 'store'
 import { selectIsLoading, selectUsers, fetchUsers, User } from 'store/users'
 import DefaultLayout from 'pages/layouts/default'

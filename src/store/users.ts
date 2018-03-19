@@ -1,9 +1,9 @@
 // Dependencies
 import produce from 'immer'
 import { Dispatch } from 'redux'
-import { Action, createAction, handleActions } from 'redux-actions'
-import { State as StoreState } from 'store'
+import { createAction, handleActions, Action } from 'redux-actions'
 import { createSelector } from 'reselect'
+import { State as StoreState } from 'store'
 import { orderBy } from 'lib/functional'
 
 // Type definitions

@@ -2,7 +2,7 @@
 import React from 'react'
 import { Redirect, RouteProps } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Dispatch, bindActionCreators } from 'redux'
+import { bindActionCreators, Dispatch } from 'redux'
 import { State as StoreState } from 'store'
 import { login } from 'store/me'
 import produce from 'immer'

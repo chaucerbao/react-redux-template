@@ -2,7 +2,7 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Dispatch, bindActionCreators } from 'redux'
+import { bindActionCreators, Dispatch } from 'redux'
 import { State as StoreState } from 'store'
 import { logout } from 'store/me'
 
@@ -20,9 +20,7 @@ class Logout extends React.Component<Props> {
   }
 
   render() {
-    return (
-      <Redirect to="/" />
-    )
+    return <Redirect to="/" />
   }
 }
 

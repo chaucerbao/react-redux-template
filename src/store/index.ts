@@ -1,9 +1,9 @@
 // Dependencies
 import {
-  Middleware,
   applyMiddleware,
   combineReducers,
-  createStore
+  createStore,
+  Middleware
 } from 'redux'
 import logger from 'redux-logger'
 import thunk from 'redux-thunk'
