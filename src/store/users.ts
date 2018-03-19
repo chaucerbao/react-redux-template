@@ -4,7 +4,7 @@ import { Dispatch } from 'redux'
 import { createAction, handleActions, Action } from 'redux-actions'
 import { createSelector } from 'reselect'
 import { State as StoreState } from 'store'
-import { orderBy } from 'lib/functional'
+import { orderBy } from 'lib/helper'
 
 // Type definitions
 export interface State {
