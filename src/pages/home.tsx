@@ -3,8 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Dispatch, bindActionCreators } from 'redux'
 import { State as StoreState } from 'store'
-import { fetchUsers, User } from 'store/users'
-import { sortMapBy } from 'lib/selectors'
+import { selectIsLoading, selectUsers, fetchUsers, User } from 'store/users'
 import DefaultLayout from 'pages/layouts/default'
 import Button from 'components/button'
 import Loading from 'components/loading'
@@ -12,7 +11,8 @@ import Loading from 'components/loading'
 // Type definitions
 interface Props {
   state: {
-    users: Pick<StoreState['users'], '_cache' | 'isLoading'>
+    isLoading: boolean
+    users: User[]
   }
   dispatch: {
     fetchUsers: typeof fetchUsers
@@ -27,16 +27,15 @@ class Home extends React.Component<Props> {
 
   render() {
     const { state } = this.props
-    const sortedUsers = sortMapBy<User>('name')(state.users._cache)
 
     return (
       <DefaultLayout>
         <h1>Homepage</h1>
 
-        {state.users.isLoading ? (
+        {state.isLoading ? (
           <Loading />
         ) : (
-          sortedUsers.map(user => (
+          state.users.map(user => (
             <div key={`user:${user.id}`}>{user.name}</div>
           ))
         )}
@@ -50,10 +49,8 @@ class Home extends React.Component<Props> {
 // State
 const mapStateToProps = (state: StoreState) => ({
   state: {
-    users: {
-      _cache: state.users._cache,
-      isLoading: state.users.isLoading
-    }
+    isLoading: selectIsLoading(state),
+    users: selectUsers(state)
   }
 })
 

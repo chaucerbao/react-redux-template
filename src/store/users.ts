@@ -3,6 +3,8 @@ import produce from 'immer'
 import { Dispatch } from 'redux'
 import { Action, createAction, handleActions } from 'redux-actions'
 import { State as StoreState } from 'store'
+import { createSelector } from 'reselect'
+import { orderBy } from 'lib/functional'
 
 // Type definitions
 export interface State {
@@ -20,6 +22,14 @@ const defaultState = {
   _cache: {},
   isLoading: false
 }
+
+// Selectors
+export const selectUsers = createSelector(
+  (state: StoreState) => state.users._cache,
+  users =>
+    orderBy<User>('name')(Object.keys(users).map(key => users[parseInt(key)]))
+)
+export const selectIsLoading = (state: StoreState) => state.users.isLoading
 
 // Actions
 const setLoading = createAction<boolean>('USERS/SET_LOADING')
