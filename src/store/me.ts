@@ -15,6 +15,9 @@ export type State = Me | null
 // Default state
 const defaultState = null
 
+// Selectors
+export const selectIsLoggedIn = (state: StoreState) => !!state.me
+
 // Actions
 const setMe = createAction<Me>('ME/LOG_IN')
 export const logout = createAction('ME/LOG_OUT')

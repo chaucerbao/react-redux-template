@@ -4,7 +4,7 @@ import { Redirect, RouteProps } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators, Dispatch } from 'redux'
 import { State as StoreState } from 'store'
-import { login } from 'store/me'
+import { selectIsLoggedIn, login } from 'store/me'
 import produce from 'immer'
 import DefaultLayout from 'pages/layouts/default'
 import Button from 'components/button'
@@ -12,7 +12,7 @@ import Button from 'components/button'
 // Type definitions
 interface Props {
   state: {
-    me: StoreState['me']
+    isLoggedIn: boolean
   }
   dispatch: {
     login: typeof login
@@ -57,7 +57,7 @@ class Login extends React.Component<Props, State> {
   }
 
   render() {
-    if (this.props.state.me) {
+    if (this.props.state.isLoggedIn) {
       const path = this.props.location!.search
 
       return (
@@ -108,7 +108,7 @@ class Login extends React.Component<Props, State> {
 // State
 const mapStateToProps = (state: StoreState) => ({
   state: {
-    me: state.me
+    isLoggedIn: selectIsLoggedIn(state)
   }
 })
 
