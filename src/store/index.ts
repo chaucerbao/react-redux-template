@@ -5,8 +5,10 @@ import {
   createStore,
   Middleware
 } from 'redux'
-import logger from 'redux-logger'
+import { persistReducer, persistStore } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
 import thunk from 'redux-thunk'
+import logger from 'redux-logger'
 
 // Reducers
 import me, { State as MeState } from 'store/me'
@@ -18,6 +20,12 @@ export interface State {
   users: UsersState
 }
 
+// Reducers
+const reducers = {
+  me,
+  users
+}
+
 // Middleware
 const middleware: Middleware[] = [thunk]
 if (process.env.NODE_ENV !== 'production') {
@@ -25,10 +33,11 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 // Store
-export default createStore(
-  combineReducers({
-    me,
-    users
-  }),
+const store = createStore(
+  persistReducer({ key: 'persistStore', storage }, combineReducers(reducers)),
   applyMiddleware(...middleware)
 )
+
+// Exports
+export default store
+export const persistor = persistStore(store)
