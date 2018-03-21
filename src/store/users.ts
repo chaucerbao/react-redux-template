@@ -29,6 +29,7 @@ export const selectUsers = createSelector(
   users =>
     orderBy<User>('name')(Object.values(users))
 )
+export const selectUser = (state: StoreState, id: User['id']) => state.users._cache[id]
 export const selectIsLoading = (state: StoreState) => state.users.isLoading
 
 // Actions
